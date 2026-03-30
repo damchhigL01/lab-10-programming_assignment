@@ -79,3 +79,5 @@ def main():
             print("Invalid choice.")
             input("Press Enter to continue...")
             
+if __name__ == "__main__":
+    main()
