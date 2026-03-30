@@ -41,3 +41,41 @@ class WordAnalyzer:
     def print_report(self):
         for word in sorted(self._frequencies.keys()):
             print(f"{word:<10} :: {self._frequencies[word]}")
+
+def main():
+    files = {
+        "1": "princess_mars.txt",
+        "2": "Tarzan.txt",
+        "3": "treasure_island.txt",
+        "4": "monte_cristo.txt"
+    }
+
+    while True:
+        print("\n--- Word Analyzer ---")
+        print("1. Princess of Mars")
+        print("2. Tarzan")
+        print("3. Treasure Island")
+        print("4. Monte Cristo")
+        print("5. Exit")
+
+        choice = input("Enter your choice (1-5): ")
+
+        if choice == "5":
+            print("Goodbye!")
+            break
+
+        elif choice in files:
+            filename = files[choice]
+            print(f"\nProcessing '{filename}'...\n")
+
+            analyzer = WordAnalyzer(filename)
+
+            if analyzer.process_file():
+                analyzer.print_report()
+
+            input("\nPress Enter to return to the menu...")
+
+        else:
+            print("Invalid choice.")
+            input("Press Enter to continue...")
+            
